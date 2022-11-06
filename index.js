@@ -13,7 +13,7 @@ app.use(express.json());
 
 //DB connection
 mongoose.connect(
-    "mongodb://localhost:27017/authentication",
+    process.env.DB_CONNECT,
     () => {
         console.log("Database is connnected succesfully")
     }
