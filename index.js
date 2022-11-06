@@ -7,13 +7,14 @@ dotenv.config();
 
 //Route Import
 const auth = require('./routes/auth');
+const post = require('./routes/post');
 
 //Middleware
 app.use(express.json());
 
 //DB connection
 mongoose.connect(
-    "mongodb://localhost:27017/authentication",
+    process.env.DB_CONNECT,
     () => {
         console.log("Database is connnected succesfully")
     }
@@ -21,5 +22,7 @@ mongoose.connect(
 
 //Route Middleware
 app.use('/api/user', auth);
+app.use('/api/post', post);
+
 
 app.listen(5000);
