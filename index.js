@@ -7,6 +7,7 @@ dotenv.config();
 
 //Route Import
 const auth = require('./routes/auth');
+const post = require('./routes/post');
 
 //Middleware
 app.use(express.json());
@@ -21,5 +22,7 @@ mongoose.connect(
 
 //Route Middleware
 app.use('/api/user', auth);
+app.use('/api/post', post);
+
 
 app.listen(5000);
